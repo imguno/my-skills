@@ -1,0 +1,39 @@
+{
+  "name": "@my-skills/dev",
+  "version": "1.0.0",
+  "private": true,
+  "description": "개발 공통 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "개발 공통",
+    "skills": {
+      "commit-archaeologist": {
+        "description": "Git 이력으로 코드의 도입 배경과 변경 이유 추적",
+        "repository": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+        "ref": "4bf51ab704fb2c5b3803cd5191b30d7dcdb51dc2",
+        "path": "agent_skills/commit-archaeologist"
+      },
+      "scope-creep-detector": {
+        "description": "변경사항이 원래 작업 범위를 벗어났는지 검토",
+        "repository": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+        "ref": "4bf51ab704fb2c5b3803cd5191b30d7dcdb51dc2",
+        "path": "agent_skills/scope-creep-detector"
+      },
+      "full-output-enforcement": {
+        "description": "생략과 자리표시자 없이 완성된 결과 작성",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/output-skill"
+      },
+      "suggest-awesome-github-copilot-skills": {
+        "description": "프로젝트에 맞는 추가 스킬 탐색",
+        "repository": "https://github.com/github/awesome-copilot",
+        "ref": "36e95dfda72140a68f577d5c894a551607606bd3",
+        "path": "skills/suggest-awesome-github-copilot-skills"
+      }
+    }
+  }
+}

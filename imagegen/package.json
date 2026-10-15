@@ -1,0 +1,39 @@
+{
+  "name": "@my-skills/imagegen",
+  "version": "1.0.0",
+  "private": true,
+  "description": "이미지와 브랜드 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "이미지와 브랜드",
+    "skills": {
+      "brandkit": {
+        "description": "브랜드 가이드, 로고 체계, 아이덴티티 이미지 생성",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/brandkit"
+      },
+      "image-to-code": {
+        "description": "디자인 이미지를 먼저 만든 뒤 웹 프론트엔드로 구현",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/image-to-code-skill"
+      },
+      "imagegen-frontend-web": {
+        "description": "웹사이트와 랜딩 페이지의 디자인 참고 이미지 생성",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/imagegen-frontend-web"
+      },
+      "imagegen-frontend-mobile": {
+        "description": "모바일 앱 화면과 흐름의 디자인 이미지 생성",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/imagegen-frontend-mobile"
+      }
+    }
+  }
+}

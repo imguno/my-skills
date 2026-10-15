@@ -1,0 +1,51 @@
+{
+  "name": "@my-skills/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "프론트엔드 개발 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "프론트엔드 개발",
+    "skills": {
+      "design-taste-frontend": {
+        "description": "웹사이트 아트 디렉션과 프론트엔드 디자인",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/taste-skill"
+      },
+      "design-taste-frontend-v1": {
+        "description": "기존 v1 디자인 규칙이 필요한 프로젝트용",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/taste-skill-v1"
+      },
+      "redesign-existing-projects": {
+        "description": "기존 웹사이트와 앱의 디자인 진단 및 개선",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/redesign-skill"
+      },
+      "web-design-guidelines": {
+        "description": "웹 UI와 접근성 가이드 준수 검토",
+        "repository": "https://github.com/vercel-labs/agent-skills",
+        "ref": "063bee94c3f4df8453406c830b0a7df0f2860278",
+        "path": "skills/web-design-guidelines"
+      },
+      "ui-ux-pro-max": {
+        "description": "UI/UX 패턴, 색상, 타이포그래피, 기술 스택별 가이드",
+        "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "ref": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+        "path": ".claude/skills/ui-ux-pro-max"
+      },
+      "web-artifacts-builder": {
+        "description": "React 기반 복합 웹 아티팩트 구성 및 번들링",
+        "repository": "https://github.com/anthropics/skills",
+        "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+        "path": "skills/web-artifacts-builder"
+      }
+    }
+  }
+}

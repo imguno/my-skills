@@ -1,0 +1,27 @@
+{
+  "name": "@my-skills/backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "백엔드 개발 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "백엔드 개발",
+    "skills": {
+      "architecture-patterns": {
+        "description": "Clean Architecture, Hexagonal Architecture, DDD 기반 백엔드 설계",
+        "repository": "https://github.com/wshobson/agents",
+        "ref": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+        "path": "plugins/backend-development/skills/architecture-patterns"
+      },
+      "golang-patterns": {
+        "description": "Go 코드 작성과 검토를 위한 관용 패턴",
+        "repository": "https://github.com/affaan-m/everything-claude-code",
+        "ref": "c70874fae9eb0e5ad0365beb7e2955899fd1d30f",
+        "path": "skills/golang-patterns"
+      }
+    }
+  }
+}

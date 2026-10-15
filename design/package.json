@@ -1,0 +1,45 @@
+{
+  "name": "@my-skills/design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "디자인 방향 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "디자인 방향",
+    "skills": {
+      "gpt-taste": {
+        "description": "GPT/Codex 작업을 위한 레이아웃과 모션 디자인 규칙",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/gpt-tasteskill"
+      },
+      "high-end-visual-design": {
+        "description": "차분하고 정제된 시각 디자인",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/soft-skill"
+      },
+      "minimalist-ui": {
+        "description": "절제된 제품 UI와 에디토리얼 디자인",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/minimalist-skill"
+      },
+      "industrial-brutalist-ui": {
+        "description": "산업적이고 실험적인 브루탈리즘 인터페이스",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/brutalist-skill"
+      },
+      "stitch-design-taste": {
+        "description": "Google Stitch용 디자인 언어와 DESIGN.md 구성",
+        "repository": "https://github.com/Leonxlnx/taste-skill",
+        "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+        "path": "skills/stitch-skill"
+      }
+    }
+  }
+}

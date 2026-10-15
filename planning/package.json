@@ -1,0 +1,19 @@
+{
+  "name": "@my-skills/planning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "기획과 아이템 발굴 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "기획과 아이템 발굴",
+    "skills": {
+      "micro-saas-finder": {
+        "description": "틈새 마이크로 SaaS와 단일 기능 서비스 아이템 발굴",
+        "status": "source-needed"
+      }
+    }
+  }
+}
