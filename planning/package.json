@@ -13,6 +13,42 @@
       "micro-saas-finder": {
         "description": "틈새 마이크로 SaaS와 단일 기능 서비스 아이템 발굴",
         "status": "source-needed"
+      },
+      "interview-me": {
+        "description": "질문을 통해 모호한 요구와 목표 구체화",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/interview-me",
+        "resources": [
+          "references"
+        ]
+      },
+      "idea-refine": {
+        "description": "아이디어의 대안 탐색과 구체적인 제안 정리",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/idea-refine",
+        "resources": [
+          "references"
+        ]
+      },
+      "spec-driven-development": {
+        "description": "구현 전 요구사항과 제품 명세 작성",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/spec-driven-development",
+        "resources": [
+          "references"
+        ]
+      },
+      "planning-and-task-breakdown": {
+        "description": "명세를 의존성과 검증 기준이 있는 작업으로 분해",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/planning-and-task-breakdown",
+        "resources": [
+          "references"
+        ]
       }
     }
   }

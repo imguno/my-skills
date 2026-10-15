@@ -21,6 +21,15 @@
         "repository": "https://github.com/affaan-m/everything-claude-code",
         "ref": "c70874fae9eb0e5ad0365beb7e2955899fd1d30f",
         "path": "skills/golang-patterns"
+      },
+      "api-and-interface-design": {
+        "description": "API 계약과 모듈 경계 및 인터페이스 설계",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/api-and-interface-design",
+        "resources": [
+          "references"
+        ]
       }
     }
   }

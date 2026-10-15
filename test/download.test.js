@@ -29,12 +29,15 @@ const checkoutFixture = async (_repository, _ref, paths, directory) => {
   for (const skillPath of paths) await putSkill(directory, path.basename(skillPath));
 };
 
-test('six purpose folders contain 22 skills, with only the known missing source pending', async () => {
+test('six purpose folders contain unique skills, including the complete Addy Osmani pack', async () => {
   const bundles = await loadBundles();
   assert.deepEqual([...bundles.keys()], ['dev', 'frontend', 'backend', 'design', 'imagegen', 'planning']);
   const skills = [...bundles.values()].flatMap(bundle => Object.entries(bundle.skills));
-  assert.equal(skills.length, 22);
-  assert.equal(new Set(skills.map(([name]) => name)).size, 22);
+  assert.equal(skills.length, 47);
+  assert.equal(new Set(skills.map(([name]) => name)).size, 47);
+  const addySkills = skills.filter(([, skill]) => skill.repository === 'https://github.com/addyosmani/agent-skills');
+  assert.equal(addySkills.length, 25);
+  assert.ok(addySkills.every(([, skill]) => skill.resources.includes('references')));
   assert.deepEqual(skills.filter(([, skill]) => skill.status === 'source-needed').map(([name]) => name), ['micro-saas-finder']);
 });
 
@@ -42,9 +45,30 @@ test('invalid flags, missing destination, unsafe paths and unpinned sources fail
   assert.throws(() => parseArgs(['--dest']), /--dest/);
   assert.throws(() => parseArgs(['--unknown']), /알 수 없는 옵션/);
   assert.deepEqual(parseArgs(['dev', 'frontend', '--dest', 'some folder', '--force']).bundles, ['dev', 'frontend']);
-  for (const change of [{ path: '../escape' }, { path: '/absolute' }, { ref: 'main' }, { repository: 'file:///tmp/local' }]) {
+  for (const change of [{ path: '../escape' }, { path: '/absolute' }, { ref: 'main' }, { repository: 'file:///tmp/local' }, { resources: ['../private'] }, { resources: 'references' }]) {
     assert.throws(() => validateBundle({ title: 'test', skills: { alpha: { ...spec('alpha'), ...change } } }, 'test'));
   }
+});
+
+test('shared references remain readable after downloading a standalone skill', async t => {
+  const directory = await temp(t);
+  const destination = path.join(directory, 'download');
+  const checkout = async (_repository, _ref, paths, output) => {
+    assert.deepEqual(paths, ['skills/alpha', 'references']);
+    await putSkill(output, 'alpha');
+    await mkdir(path.join(output, 'references'));
+    await writeFile(path.join(output, 'references/checklist.md'), '[testing](testing.md)');
+    await writeFile(path.join(output, 'references/testing.md'), 'Shared testing guidance');
+    await writeFile(path.join(output, 'skills/alpha/SKILL.md'), '---\nname: alpha\n---\nRead `../../references/checklist.md`.');
+    await mkdir(path.join(output, 'skills/alpha/references'));
+    await writeFile(path.join(output, 'skills/alpha/references/local.md'), '[shared](../../../references/checklist.md)');
+  };
+  await downloadSkills({ skills: new Map([['alpha', { ...spec('alpha'), resources: ['references'] }]]), destination, checkout, log: quiet });
+  const skillDirectory = path.join(destination, 'alpha');
+  assert.match(await readFile(path.join(skillDirectory, 'SKILL.md'), 'utf8'), /`references\/checklist.md`/);
+  assert.equal(await readFile(path.join(skillDirectory, 'references/local.md'), 'utf8'), '[shared](./checklist.md)');
+  assert.equal(await readFile(path.join(skillDirectory, 'references/checklist.md'), 'utf8'), '[testing](testing.md)');
+  assert.equal(await readFile(path.join(skillDirectory, 'references/testing.md'), 'utf8'), 'Shared testing guidance');
 });
 
 test('download copies supporting files, groups a common source and preserves existing local changes', async t => {

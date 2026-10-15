@@ -33,6 +33,168 @@
         "repository": "https://github.com/github/awesome-copilot",
         "ref": "36e95dfda72140a68f577d5c894a551607606bd3",
         "path": "skills/suggest-awesome-github-copilot-skills"
+      },
+      "using-agent-skills": {
+        "description": "작업에 맞는 스킬 선택과 공통 개발 흐름",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/using-agent-skills",
+        "resources": [
+          "references"
+        ]
+      },
+      "constraint-driven-development": {
+        "description": "품질 기준과 제약 조건 정의 및 검증",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/constraint-driven-development",
+        "resources": [
+          "references"
+        ]
+      },
+      "incremental-implementation": {
+        "description": "작은 단위로 구현하고 검증하며 변경 전달",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/incremental-implementation",
+        "resources": [
+          "references"
+        ]
+      },
+      "test-driven-development": {
+        "description": "Red-Green-Refactor 기반 테스트 주도 개발",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/test-driven-development",
+        "resources": [
+          "references"
+        ]
+      },
+      "context-engineering": {
+        "description": "에이전트 규칙과 작업 컨텍스트 구성",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/context-engineering",
+        "resources": [
+          "references"
+        ]
+      },
+      "source-driven-development": {
+        "description": "공식 문서를 근거로 구현 결정",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/source-driven-development",
+        "resources": [
+          "references"
+        ]
+      },
+      "doubt-driven-development": {
+        "description": "중요한 설계 결정과 가정의 반대 관점 검토",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/doubt-driven-development",
+        "resources": [
+          "references"
+        ]
+      },
+      "debugging-and-error-recovery": {
+        "description": "재현과 원인 분석을 통한 디버깅 및 복구",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/debugging-and-error-recovery",
+        "resources": [
+          "references"
+        ]
+      },
+      "code-review-and-quality": {
+        "description": "여러 품질 관점에서 코드와 변경사항 검토",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/code-review-and-quality",
+        "resources": [
+          "references"
+        ]
+      },
+      "code-simplification": {
+        "description": "동작을 유지하면서 코드 복잡도 줄이기",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/code-simplification",
+        "resources": [
+          "references"
+        ]
+      },
+      "security-and-hardening": {
+        "description": "인증, 입력, 의존성 등 보안 취약점 점검",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/security-and-hardening",
+        "resources": [
+          "references"
+        ]
+      },
+      "performance-optimization": {
+        "description": "측정 기반 성능 분석과 최적화",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/performance-optimization",
+        "resources": [
+          "references"
+        ]
+      },
+      "git-workflow-and-versioning": {
+        "description": "브랜치, 커밋, 버전과 변경 이력 관리",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/git-workflow-and-versioning",
+        "resources": [
+          "references"
+        ]
+      },
+      "ci-cd-and-automation": {
+        "description": "빌드와 배포 및 품질 검사 자동화",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/ci-cd-and-automation",
+        "resources": [
+          "references"
+        ]
+      },
+      "deprecation-and-migration": {
+        "description": "기능 폐기와 시스템 및 데이터 마이그레이션",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/deprecation-and-migration",
+        "resources": [
+          "references"
+        ]
+      },
+      "documentation-and-adrs": {
+        "description": "기술 문서와 아키텍처 결정 기록 작성",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/documentation-and-adrs",
+        "resources": [
+          "references"
+        ]
+      },
+      "observability-and-instrumentation": {
+        "description": "로그, 메트릭, 추적을 통한 운영 관측",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/observability-and-instrumentation",
+        "resources": [
+          "references"
+        ]
+      },
+      "shipping-and-launch": {
+        "description": "배포 전 점검과 단계적 출시 및 롤백 준비",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/shipping-and-launch",
+        "resources": [
+          "references"
+        ]
       }
     }
   }

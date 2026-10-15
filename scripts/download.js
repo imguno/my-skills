@@ -43,6 +43,9 @@ export function validateBundle(bundle, filename) {
     if (typeof skill.path !== 'string' || !skill.path || skill.path.split('/').some(part => !/^[A-Za-z0-9_.-]+$/.test(part) || part === '..' || part === '.' || part === '.git')) {
       throw new Error(`잘못된 원본 폴더 경로: ${name}`);
     }
+    if (skill.resources !== undefined && (!Array.isArray(skill.resources) || skill.resources.some(resource => typeof resource !== 'string' || !idPattern.test(resource)))) {
+      throw new Error(`공용 자료는 저장소 루트의 폴더 이름으로 지정하세요: ${name}`);
+    }
   }
 }
 
@@ -101,6 +104,34 @@ async function verifyTree(directory) {
   }
 }
 
+async function copyResources(sourceDirectory, targetDirectory) {
+  await mkdir(targetDirectory, { recursive: true });
+  for (const entry of await readdir(sourceDirectory, { withFileTypes: true })) {
+    const source = path.join(sourceDirectory, entry.name);
+    const target = path.join(targetDirectory, entry.name);
+    if (entry.isDirectory()) await copyResources(source, target);
+    else await cp(source, target, { errorOnExist: true, force: false });
+  }
+}
+
+async function relocateResourceLinks(sourceDirectory, targetDirectory, repositoryDirectory, skillDirectory, resources) {
+  for (const entry of await readdir(sourceDirectory, { withFileTypes: true })) {
+    const source = path.join(sourceDirectory, entry.name);
+    const target = path.join(targetDirectory, entry.name);
+    if (entry.isDirectory()) {
+      await relocateResourceLinks(source, target, repositoryDirectory, skillDirectory, resources);
+    } else if (entry.name.endsWith('.md')) {
+      let text = await readFile(source, 'utf8');
+      for (const resource of resources) {
+        const from = path.relative(path.dirname(source), path.join(repositoryDirectory, resource)).split(path.sep).join('/') || '.';
+        const to = path.relative(path.dirname(target), path.join(skillDirectory, resource)).split(path.sep).join('/') || '.';
+        if (from !== to) text = text.split(`${from}/`).join(`${to}/`);
+      }
+      await writeFile(target, text);
+    }
+  }
+}
+
 export async function downloadSkills({ skills, destination, force = false, log = console.log, checkout = checkoutSource }) {
   const pending = [];
   let skipped = 0;
@@ -137,22 +168,32 @@ export async function downloadSkills({ skills, destination, force = false, log =
       const first = entries[0][1];
       const repositoryDirectory = path.join(temp, String(prepared.length));
       log(`가져오는 중: ${first.repository} (${first.ref.slice(0, 7)})`);
-      await checkout(first.repository, first.ref, entries.map(([, skill]) => skill.path), repositoryDirectory);
+      const paths = [...new Set(entries.flatMap(([, skill]) => [skill.path, ...(skill.resources || [])]))];
+      await checkout(first.repository, first.ref, paths, repositoryDirectory);
       for (const [name, skill] of entries) {
         const sourceDirectory = path.join(repositoryDirectory, skill.path);
         const text = await readFile(path.join(sourceDirectory, 'SKILL.md'), 'utf8');
         if (!new RegExp(`^name:\\s*["']?${name}["']?\\s*$`, 'm').test(text)) throw new Error(`SKILL.md의 이름이 일치하지 않습니다: ${name}`);
         await verifyTree(sourceDirectory);
-        prepared.push({ name, skill, sourceDirectory });
+        for (const resource of skill.resources || []) await verifyTree(path.join(repositoryDirectory, resource));
+        prepared.push({ name, skill, sourceDirectory, repositoryDirectory });
       }
     }
     // 네트워크/원본 검증을 모두 마친 뒤 목적지에 변경을 시작한다.
     await mkdir(destination, { recursive: true });
     stage = await mkdtemp(path.join(destination, '.my-skills-stage-'));
-    for (const { name, skill, sourceDirectory } of prepared) {
+    for (const { name, skill, sourceDirectory, repositoryDirectory } of prepared) {
       const staged = path.join(stage, name);
       await cp(sourceDirectory, staged, { recursive: true, errorOnExist: true, force: false });
-      await writeFile(path.join(staged, '.my-skills-source.json'), JSON.stringify({ repository: skill.repository, ref: skill.ref, path: skill.path }, null, 2) + '\n');
+      const resources = skill.resources || [];
+      for (const resource of resources) {
+        const source = path.join(repositoryDirectory, resource);
+        const target = path.join(staged, resource);
+        await copyResources(source, target);
+        await relocateResourceLinks(source, target, repositoryDirectory, staged, resources);
+      }
+      if (resources.length) await relocateResourceLinks(sourceDirectory, staged, repositoryDirectory, staged, resources);
+      await writeFile(path.join(staged, '.my-skills-source.json'), JSON.stringify({ repository: skill.repository, ref: skill.ref, path: skill.path, ...(resources.length ? { resources } : {}) }, null, 2) + '\n');
     }
     for (const { name } of prepared) {
       const target = path.join(destination, name);
@@ -217,7 +258,7 @@ export async function main(args = process.argv.slice(2)) {
   const skills = new Map();
   for (const name of names) for (const [id, skill] of Object.entries(bundles.get(name).skills)) {
     const previous = skills.get(id);
-    if (previous && ['repository', 'ref', 'path'].some(key => previous[key] !== skill[key])) throw new Error(`묶음 사이의 원본이 다릅니다: ${id}`);
+    if (previous && (['repository', 'ref', 'path'].some(key => previous[key] !== skill[key]) || JSON.stringify(previous.resources || []) !== JSON.stringify(skill.resources || []))) throw new Error(`묶음 사이의 원본이 다릅니다: ${id}`);
     skills.set(id, skill);
   }
   console.log(`다운로드 위치: ${destination}`);

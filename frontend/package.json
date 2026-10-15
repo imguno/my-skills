@@ -45,6 +45,24 @@
         "repository": "https://github.com/anthropics/skills",
         "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
         "path": "skills/web-artifacts-builder"
+      },
+      "frontend-ui-engineering": {
+        "description": "컴포넌트, 반응형 화면, 접근성 기반 UI 구현",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/frontend-ui-engineering",
+        "resources": [
+          "references"
+        ]
+      },
+      "browser-testing-with-devtools": {
+        "description": "Chrome DevTools MCP를 통한 실제 브라우저 검증",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "ref": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+        "path": "skills/browser-testing-with-devtools",
+        "resources": [
+          "references"
+        ]
       }
     }
   }

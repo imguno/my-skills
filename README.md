@@ -8,12 +8,12 @@
 
 ```text
 my-skills/
-├── dev/package.json         # 개발 공통 (4개)
-├── frontend/package.json    # 프론트엔드 개발 (6개)
-├── backend/package.json     # 백엔드 개발 (2개)
+├── dev/package.json         # 개발 공통 (22개)
+├── frontend/package.json    # 프론트엔드 개발 (8개)
+├── backend/package.json     # 백엔드 개발 (3개)
 ├── design/package.json      # 디자인 방향 (5개)
 ├── imagegen/package.json    # 이미지와 브랜드 (4개)
-├── planning/package.json    # 기획 (1개, 원본 주소 확인 필요)
+├── planning/package.json    # 기획 (5개, 원본 주소 확인 필요 1개)
 ├── scripts/download.js     # 공용 다운로드 명령
 └── package.json             # 전체 묶음 관리
 ```
@@ -61,7 +61,7 @@ npm test                                     # 다운로드 동작 검증
 - [이미지와 브랜드](imagegen/README.md)
 - [기획과 아이템 발굴](planning/README.md)
 
-총 22개 중 원본 링크를 확인한 21개를 다운로드할 수 있다. `micro-saas-finder`는 원본 주소가 없어 보류로 표시하며 다운로드하지 않는다.
+총 47개 중 원본 링크를 확인한 46개를 다운로드할 수 있다. `micro-saas-finder`는 원본 주소가 없어 보류로 표시하며 다운로드하지 않는다.
 
 ## 스킬 추가하기
 
@@ -75,6 +75,8 @@ npm test                                     # 다운로드 동작 검증
   "path": "skills/skill-folder"
 }
 ```
+
+공용 참고 자료가 필요한 스킬에는 `"resources": ["references"]`처럼 원본 저장소 루트의 폴더를 지정할 수 있다. 해당 자료는 스킬 폴더 안에 함께 저장하며, Markdown의 상대 경로도 다운로드 위치에 맞게 조정한다.
 
 `path`는 저장소 기준 스킬 폴더이며 그 안에 이름이 일치하는 `SKILL.md`가 있어야 한다. 기존 폴더의 스킬 목록도 함께 갱신한다. 출처를 모르면 `repository`, `ref`, `path` 대신 `"status": "source-needed"`를 기록한다.
 
