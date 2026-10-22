@@ -8,12 +8,13 @@
 
 ```text
 my-skills/
-├── dev/package.json         # 개발 공통 (22개)
+├── dev/package.json         # 개발 공통 (23개)
 ├── frontend/package.json    # 프론트엔드 개발 (8개)
 ├── backend/package.json     # 백엔드 개발 (3개)
 ├── design/package.json      # 디자인 방향 (5개)
 ├── imagegen/package.json    # 이미지와 브랜드 (4개)
 ├── planning/package.json    # 기획 (5개, 원본 주소 확인 필요 1개)
+├── career/package.json      # 커리어와 포트폴리오 (1개)
 ├── scripts/download.js     # 공용 다운로드 명령
 └── package.json             # 전체 묶음 관리
 ```
@@ -60,8 +61,9 @@ npm test                                     # 다운로드 동작 검증
 - [디자인 방향](design/README.md)
 - [이미지와 브랜드](imagegen/README.md)
 - [기획과 아이템 발굴](planning/README.md)
+- [커리어와 포트폴리오](career/README.md)
 
-총 47개 중 원본 링크를 확인한 46개를 다운로드할 수 있다. `micro-saas-finder`는 원본 주소가 없어 보류로 표시하며 다운로드하지 않는다.
+총 49개 중 원본 링크를 확인한 48개를 다운로드할 수 있다. `micro-saas-finder`는 원본 주소가 없어 보류로 표시하며 다운로드하지 않는다.
 
 ## 스킬 추가하기
 
