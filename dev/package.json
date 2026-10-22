@@ -178,6 +178,12 @@
           "references"
         ]
       },
+      "c4-architecture": {
+        "description": "C4 모델과 Mermaid로 시스템 컨텍스트·컨테이너·컴포넌트 아키텍처 문서 작성",
+        "repository": "https://github.com/softaworks/agent-toolkit",
+        "ref": "06825f04669d4364a16abc267650c86cf153d349",
+        "path": "skills/c4-architecture"
+      },
       "observability-and-instrumentation": {
         "description": "로그, 메트릭, 추적을 통한 운영 관측",
         "repository": "https://github.com/addyosmani/agent-skills",
