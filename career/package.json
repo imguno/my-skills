@@ -1,0 +1,21 @@
+{
+  "name": "@my-skills/career",
+  "version": "1.0.0",
+  "private": true,
+  "description": "커리어와 포트폴리오 스킬 원본과 다운로드",
+  "scripts": {
+    "download": "node ../scripts/download.js",
+    "list": "node ../scripts/download.js --list"
+  },
+  "skillBundle": {
+    "title": "커리어와 포트폴리오",
+    "skills": {
+      "portfolio-case-study-writer": {
+        "description": "프로젝트 경험을 문제·접근·해결·성과·회고가 담긴 포트폴리오 사례로 구체화",
+        "repository": "https://github.com/davila7/claude-code-templates",
+        "ref": "b37291c50881fd122ba7bd4c27c624f0977410ed",
+        "path": "cli-tool/components/skills/career/portfolio-case-study-writer"
+      }
+    }
+  }
+}
