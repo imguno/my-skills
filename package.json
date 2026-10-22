@@ -5,7 +5,7 @@
   "type": "module",
   "description": "목적별 스킬 원본 목록과 다운로드 명령",
   "engines": { "node": ">=22" },
-  "workspaces": ["dev", "frontend", "backend", "design", "imagegen", "planning"],
+  "workspaces": ["dev", "frontend", "backend", "design", "imagegen", "planning", "career"],
   "scripts": {
     "list": "node scripts/download.js --list",
     "download": "node scripts/download.js",
